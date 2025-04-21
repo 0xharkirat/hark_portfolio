@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/src/controllers/theme_mode_controller.dart';
+import 'package:portfolio/src/utils/constants.dart';
 import 'package:portfolio/src/utils/string_extension.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -20,45 +21,48 @@ class TopBar extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 'Harkirat Singh',
-                style: ShadTheme.of(
-                  context,
-                ).textTheme.h4.copyWith(fontWeight: FontWeight.normal),
+                style: ShadTheme.of(context).textTheme.p.copyWith(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: DarkThemeColors.gray1200.color,
+                ),
               ),
-              const SizedBox(height: 4),
+
               Text(
                 'Software Artisan',
                 style: ShadTheme.of(
                   context,
-                ).textTheme.muted.copyWith(fontSize: 16),
+                ).textTheme.p.copyWith(fontSize: 16, color: DarkThemeColors.gray1100.color),
               ),
             ],
           ),
         ),
-    
-        InkWell(
-          onTap: () {
-            ref.read(themeModeProvider.notifier).toggleTheme();
-          },
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-          hoverColor: Colors.transparent,
-    
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(appThemeMode.icon),
-              const SizedBox(width: 4),
-              Text(
-                appThemeMode.name.capitalize(),
-                style: ShadTheme.of(context).textTheme.p,
-              ),
-            ],
-          ),
-        ),
+
+        // InkWell(
+        //   onTap: () {
+        //     ref.read(themeModeProvider.notifier).toggleTheme();
+        //   },
+        //   highlightColor: Colors.transparent,
+        //   splashColor: Colors.transparent,
+        //   splashFactory: NoSplash.splashFactory,
+        //   hoverColor: Colors.transparent,
+
+        //   child: Row(
+        //     crossAxisAlignment: CrossAxisAlignment.center,
+        //     children: [
+        //       Icon(appThemeMode.icon),
+        //       const SizedBox(width: 4),
+        //       Text(
+        //         appThemeMode.name.capitalize(),
+        //         style: ShadTheme.of(context).textTheme.p,
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }
