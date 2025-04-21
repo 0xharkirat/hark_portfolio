@@ -26,8 +26,8 @@ class Section extends StatelessWidget {
             (((windowWidth - maxContentWidth - outerPadding.horizontal) / 2)
                 .clamp(0.0, double.infinity));
 
-        log('Window Width: $windowWidth');
-        log('Computed Inner Padding: $computedInnerPadding');
+        // log('Window Width: $windowWidth');
+        // log('Computed Inner Padding: $computedInnerPadding');
 
         return Container(
           color: backgroundColor,
