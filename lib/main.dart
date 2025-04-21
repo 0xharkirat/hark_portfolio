@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/constants.dart';

@@ -4,9 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 const fonts = GoogleFonts.inter;
 
-const kHeadingColor = Color(0xFFeeeeec);
 
-const kPColor = Color(0xFFB5B3AD);
+
 
 enum DarkThemeColors {
   gray100(Color(0xFF111110)),

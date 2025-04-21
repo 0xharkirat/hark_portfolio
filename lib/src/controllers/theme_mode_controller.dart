@@ -15,7 +15,7 @@ enum AppThemeMode {
 class ThemeModeController extends Notifier<AppThemeMode> {
   @override
   AppThemeMode build() {
-    return AppThemeMode.system;
+    return AppThemeMode.dark;
   }
 
   void toggleTheme() {
