@@ -11,7 +11,7 @@ class Heading extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = ShadTheme.of(
       context,
-    ).textTheme.p.copyWith(fontSize: 16, color: ShadTheme.of(context).colorScheme.primary);
+    ).textTheme.p.copyWith(fontSize: 16, color: ShadTheme.of(context).colorScheme.primary, fontWeight: FontWeight.w500);
 
     return isSelectable
         ? SelectableText(text, style: style)

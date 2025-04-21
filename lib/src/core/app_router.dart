@@ -10,9 +10,11 @@ enum AppRoutes {
 
 final appRouter = GoRouter(
   initialLocation: AppRoutes.home.path,
+  debugLogDiagnostics: true,
   routes: [
     GoRoute(
       path: AppRoutes.home.path,
+      name: AppRoutes.home.name,
       builder: (context, state) => const HomePage(),
     ),
   ],

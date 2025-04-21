@@ -14,7 +14,7 @@ class HeroSection extends StatelessWidget {
         const SizedBox(height: 20),
         P(
           text:
-              "I build solutions that are simple, helpful — and sometimes just to show off (but not really).\nI fail fast, build more, and keep learning better technologies.\nBuilding from the land of kangaroos.",
+              "I build solutions that are simple, helpful — and sometimes just to show off (but not really). I fail fast, build more, and keep learning better technologies. Building from the land of kangaroos.",
         ),
       ],
     );

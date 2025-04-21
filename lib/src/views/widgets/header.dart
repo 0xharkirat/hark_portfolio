@@ -39,7 +39,11 @@ class Header extends ConsumerWidget {
                 children: [
                   Heading(text: 'Harkirat Singh', isSelectable: false),
 
-                  P(text: 'Software Artisan', isSelectable: false),
+                  P(
+                    text: 'Software Artisan',
+                    isSelectable: false,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ],
               ),
             ),
