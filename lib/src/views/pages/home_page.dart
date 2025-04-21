@@ -5,6 +5,7 @@ import 'package:portfolio/src/views/widgets/home/contributions_section.dart';
 import 'package:portfolio/src/views/widgets/home/projects_section.dart';
 import 'package:portfolio/src/views/widgets/home/hero_section.dart';
 import 'package:portfolio/src/views/widgets/header.dart';
+import 'package:portfolio/src/views/widgets/home/youtube_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,8 +15,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          spacing: 48.0,
           children: <Widget>[
             const Header(),
+
 
             const HeroSection(),
 
@@ -24,6 +27,8 @@ class HomePage extends StatelessWidget {
             const ContributionsSection(),
 
             const Contact(),
+
+            const YoutubeSection(),
 
             const Footer(),
           ],

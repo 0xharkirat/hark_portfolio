@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/models/list_item.dart';
+import 'package:portfolio/src/utils/methods.dart';
 import 'package:portfolio/src/views/widgets/heading.dart';
 import 'package:portfolio/src/views/widgets/li.dart';
 import 'package:portfolio/src/views/widgets/p.dart';
@@ -29,6 +30,11 @@ class BaseListSection extends StatelessWidget {
             return LI(
               heading: Heading(text: listItem.heading, isSelectable: false),
               p: P(text: listItem.description, isSelectable: false),
+              onTap: () {
+                if (listItem.url != null) {
+                  linkOpen(listItem.url!);
+                }
+              },
             );
           },
           separatorBuilder: (context, index) {

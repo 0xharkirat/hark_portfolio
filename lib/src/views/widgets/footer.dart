@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/utils/methods.dart';
 import 'package:portfolio/src/views/widgets/heading.dart';
+import 'package:portfolio/src/views/widgets/p.dart';
 import 'package:portfolio/src/views/widgets/section.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:textf/textf.dart';
@@ -20,7 +21,7 @@ class Footer extends StatelessWidget {
     ).textTheme.p.copyWith(fontSize: 16, color: color);
     return Section(
       children: [
-        Heading(text: "Socials"),
+        Heading(text: "Socials & More"),
         const SizedBox(height: 20),
         TextfOptions(
           onUrlTap: (url, displayText) => linkOpen(url),
@@ -39,6 +40,8 @@ class Footer extends StatelessWidget {
             style: style
           ),
         ),
+        const SizedBox(height: 20),
+        P(text: "I acknowledge and deeply appreciate the original design, creativity, and overall inspiration behind this site — all credited to Emil Kowalski. This version is a Flutter-based reimagination of his beautifully crafted portfolio, built for learning, admiration, and open source love.")
       ],
     );
   }

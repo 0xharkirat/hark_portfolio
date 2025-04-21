@@ -42,7 +42,7 @@ class Contact extends StatelessWidget {
                   LucideIcons.twitter,
                   color: iconColor,
                 ),
-                child: const P(text: "DM Me", isSelectable: false),
+                child: const P(text: "Dm Me", isSelectable: false),
                 // 1334824502497165312
 
                 onPressed: () => linkOpen("https://twitter.com/messages/compose?recipient_id=1334824502497165312"),
