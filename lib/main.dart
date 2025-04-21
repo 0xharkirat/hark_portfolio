@@ -22,12 +22,25 @@ class MyApp extends ConsumerWidget {
       title: 'Harkirat Singh',
       themeMode: appThemeMode.themeMode,
       darkTheme: ShadThemeData(
-        colorScheme: ShadStoneColorScheme.dark(),
+        colorScheme: ShadNeutralColorScheme.dark(
+          background: DarkThemeColors.gray100.color,
+          primary: DarkThemeColors.gray1200.color,
+          secondary: DarkThemeColors.gray1100.color,
+          border: DarkThemeColors.gray400.color,
+          card: DarkThemeColors.gray200.color,
+          
+        ),
         brightness: Brightness.dark,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),
       ),
       theme: ShadThemeData(
-        colorScheme: ShadStoneColorScheme.light(),
+        colorScheme: ShadNeutralColorScheme.light(
+          background: LightThemeColors.gray100.color,
+          primary: LightThemeColors.gray1200.color,
+          secondary: LightThemeColors.gray1100.color,
+          border: LightThemeColors.gray400.color,
+          card: LightThemeColors.gray200.color, 
+        ),
         brightness: Brightness.light,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),
       ),

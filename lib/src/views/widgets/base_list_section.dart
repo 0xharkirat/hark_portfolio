@@ -6,24 +6,19 @@ import 'package:portfolio/src/views/widgets/p.dart';
 import 'package:portfolio/src/views/widgets/section.dart';
 
 class BaseListSection extends StatelessWidget {
-  const BaseListSection({super.key, required this.title, required this.listItems});
+  const BaseListSection({
+    super.key,
+    required this.title,
+    required this.listItems,
+  });
   final String title;
   final List<ListItem> listItems;
 
   @override
   Widget build(BuildContext context) {
     return Section(
-   
-      outerPadding: const EdgeInsets.symmetric(
-        vertical: 40,
-      ), // to give inner padding to list tile hover color
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-          ), // giving padding to the heading
-          child: Heading(text: title),
-        ),
+        Heading(text: title),
         const SizedBox(height: 20),
         ListView.separated(
           shrinkWrap: true,
@@ -44,3 +39,4 @@ class BaseListSection extends StatelessWidget {
     );
   }
 }
+

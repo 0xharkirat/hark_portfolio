@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/utils/constants.dart';
 import 'package:portfolio/src/utils/methods.dart';
 import 'package:portfolio/src/views/widgets/heading.dart';
 import 'package:portfolio/src/views/widgets/section.dart';
@@ -10,13 +9,15 @@ import 'package:textf/textf.dart';
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
+
   
 
   @override
   Widget build(BuildContext context) {
+    final color = ShadTheme.of(context).colorScheme.secondary;
     final style = ShadTheme.of(
       context,
-    ).textTheme.p.copyWith(fontSize: 16, color: DarkThemeColors.gray1100.color);
+    ).textTheme.p.copyWith(fontSize: 16, color: color);
     return Section(
       children: [
         Heading(text: "Socials"),
@@ -25,12 +26,12 @@ class Footer extends StatelessWidget {
           onUrlTap: (url, displayText) => linkOpen(url),
           urlHoverStyle: style.copyWith(
             decoration: TextDecoration.underline,
-            decorationColor: DarkThemeColors.gray1100.color,
+            decorationColor: color,
          
           ),
           urlStyle: style.copyWith(
             decoration: TextDecoration.underline,
-            decorationColor: DarkThemeColors.gray1100.color,
+            decorationColor: color,
            
           ),
           child: Textf(

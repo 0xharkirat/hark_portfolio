@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/utils/constants.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class Heading extends StatelessWidget {
@@ -12,7 +11,7 @@ class Heading extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = ShadTheme.of(
       context,
-    ).textTheme.p.copyWith(fontSize: 16, color: DarkThemeColors.gray1200.color);
+    ).textTheme.p.copyWith(fontSize: 16, color: ShadTheme.of(context).colorScheme.primary);
 
     return isSelectable
         ? SelectableText(text, style: style)

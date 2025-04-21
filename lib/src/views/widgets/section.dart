@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class Section extends StatelessWidget {
@@ -5,36 +7,27 @@ class Section extends StatelessWidget {
     super.key,
     this.backgroundColor,
     required this.children,
-    this.maxContentWidth = 640,
-    this.outerPadding = const EdgeInsets.symmetric(
-      horizontal: 16,
-      vertical: 40,
-    ),
-    this.initialInnerPadding = 320,
+    this.maxContentWidth = 660.0,
+    this.outerPadding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 40.0),
   });
 
   final Color? backgroundColor;
   final List<Widget> children;
   final double maxContentWidth;
   final EdgeInsets outerPadding;
-  final double initialInnerPadding;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final windowWidth = constraints.maxWidth;
+        final windowWidth = constraints.maxWidth.toDouble(); // ✅ fix here
 
-        final double targetWidth =
-            maxContentWidth + 2 * initialInnerPadding + outerPadding.horizontal;
+        final computedInnerPadding =
+            (((windowWidth - maxContentWidth - outerPadding.horizontal) / 2)
+                .clamp(0.0, double.infinity));
 
-        // Adjust innerPadding if window is smaller than target layout width
-        final double computedInnerPadding =
-            windowWidth > targetWidth
-                ? initialInnerPadding
-                : ((windowWidth - maxContentWidth - outerPadding.horizontal) /
-                        2)
-                    .clamp(0, initialInnerPadding);
+        log('Window Width: $windowWidth');
+        log('Computed Inner Padding: $computedInnerPadding');
 
         return Container(
           color: backgroundColor,
@@ -43,7 +36,6 @@ class Section extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: computedInnerPadding),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: children,
             ),

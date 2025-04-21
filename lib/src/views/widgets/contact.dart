@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio/src/utils/constants.dart';
 import 'package:portfolio/src/utils/methods.dart';
 import 'package:portfolio/src/views/widgets/heading.dart';
 import 'package:portfolio/src/views/widgets/p.dart';
@@ -12,6 +11,7 @@ class Contact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconColor = ShadTheme.of(context).colorScheme.secondary;
     return Section(
       children: [
         Heading(text: "Contact"),
@@ -26,7 +26,7 @@ class Contact extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             border: Border.all(
-              color: DarkThemeColors.gray400.color,
+              color: ShadTheme.of(context).colorScheme.border,
               width: 1,
             ),
             borderRadius: BorderRadius.circular(8),
@@ -40,7 +40,7 @@ class Contact extends StatelessWidget {
                 size: ShadButtonSize.sm,
                 leading: Icon(
                   LucideIcons.twitter,
-                  color: DarkThemeColors.gray1100.color,
+                  color: iconColor,
                 ),
                 child: const P(text: "DM Me", isSelectable: false),
                 // 1334824502497165312
@@ -51,7 +51,7 @@ class Contact extends StatelessWidget {
                 size: ShadButtonSize.sm,
                 leading: Icon(
                   LucideIcons.mail,
-                  color: DarkThemeColors.gray1100.color,
+                  color: iconColor,
                 ),
                 child: const P(text: "Email Me", isSelectable: false),
                 onPressed:
@@ -61,7 +61,7 @@ class Contact extends StatelessWidget {
                 size: ShadButtonSize.sm,
                 leading: Icon(
                   LucideIcons.copy,
-                  color: DarkThemeColors.gray1100.color,
+                  color: iconColor,
                 ),
                 child: const P(text: "Copy Email", isSelectable: false),
                 onPressed: () {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/controllers/theme_mode_controller.dart';
-import 'package:portfolio/src/utils/constants.dart';
+import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/string_extension.dart';
+import 'package:portfolio/src/views/widgets/heading.dart';
+import 'package:portfolio/src/views/widgets/p.dart';
 import 'package:portfolio/src/views/widgets/section.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -20,53 +23,54 @@ class Header extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // Left: Name and subtitle
-            Expanded(
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              hoverColor: Colors.transparent,
+
+              onTap: () {
+                context.goNamed(AppRoutes.home.name);
+              },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    'Harkirat Singh',
-                    style: ShadTheme.of(context).textTheme.p.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: DarkThemeColors.gray1200.color,
-                    ),
-                  ),
+                  Heading(text: 'Harkirat Singh', isSelectable: false),
 
+                  P(text: 'Software Artisan', isSelectable: false),
+                ],
+              ),
+            ),
+            const Spacer(),
+
+            InkWell(
+              onTap: () {
+                ref.read(themeModeProvider.notifier).toggleTheme();
+              },
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              hoverColor: Colors.transparent,
+
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    appThemeMode.icon,
+                    color: ShadTheme.of(context).colorScheme.secondary,
+                  ),
+                  const SizedBox(width: 4),
                   Text(
-                    'Software Artisan',
+                    appThemeMode.name.capitalize(),
                     style: ShadTheme.of(context).textTheme.p.copyWith(
-                      fontSize: 16,
-                      color: DarkThemeColors.gray1100.color,
+                      color: ShadTheme.of(context).colorScheme.secondary,
                     ),
                   ),
                 ],
               ),
             ),
-
-            // InkWell(
-            //   onTap: () {
-            //     ref.read(themeModeProvider.notifier).toggleTheme();
-            //   },
-            //   highlightColor: Colors.transparent,
-            //   splashColor: Colors.transparent,
-            //   splashFactory: NoSplash.splashFactory,
-            //   hoverColor: Colors.transparent,
-
-            //   child: Row(
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       Icon(appThemeMode.icon),
-            //       const SizedBox(width: 4),
-            //       Text(
-            //         appThemeMode.name.capitalize(),
-            //         style: ShadTheme.of(context).textTheme.p,
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ],
