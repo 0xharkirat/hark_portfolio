@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/string_extension.dart';
-import 'package:portfolio/src/views/widgets/heading.dart';
-import 'package:portfolio/src/views/widgets/p.dart';
-import 'package:portfolio/src/views/widgets/section.dart';
+import 'package:portfolio/src/views/widgets/common/heading.dart';
+import 'package:portfolio/src/views/widgets/common/p.dart';
+import 'package:portfolio/src/views/widgets/common/section.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class Header extends ConsumerWidget {

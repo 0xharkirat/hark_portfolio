@@ -4,8 +4,10 @@ import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/constants.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:portfolio/src/utils/url_strategy.dart'; // ✅ impo
 
 void main() {
+  setUrlStrategy();
   runApp(ProviderScope(child: const MyApp()));
 }
 
@@ -28,7 +30,6 @@ class MyApp extends ConsumerWidget {
           secondary: DarkThemeColors.gray1100.color,
           border: DarkThemeColors.gray400.color,
           card: DarkThemeColors.gray200.color,
-          
         ),
         brightness: Brightness.dark,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),
@@ -39,7 +40,7 @@ class MyApp extends ConsumerWidget {
           primary: LightThemeColors.gray1200.color,
           secondary: LightThemeColors.gray1100.color,
           border: LightThemeColors.gray400.color,
-          card: LightThemeColors.gray200.color, 
+          card: LightThemeColors.gray200.color,
         ),
         brightness: Brightness.light,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),

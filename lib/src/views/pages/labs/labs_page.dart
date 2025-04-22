@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/src/views/widgets/common/base_page_scaffold.dart';
+import 'package:portfolio/src/views/widgets/common/contact.dart';
+import 'package:portfolio/src/views/widgets/common/footer.dart';
+import 'package:portfolio/src/views/widgets/common/header.dart';
+import 'package:portfolio/src/views/widgets/labs/labs_section.dart';
+
+class LabsPage extends StatelessWidget {
+  const LabsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BasePageScaffold(
+      children: [
+        const Header(),
+        const LabsSection(),
+        const Contact(),
+        const Footer(),
+      ],
+    );
+  }
+}

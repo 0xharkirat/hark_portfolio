@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/utils/methods.dart';
-import 'package:portfolio/src/views/widgets/heading.dart';
-import 'package:portfolio/src/views/widgets/p.dart';
-import 'package:portfolio/src/views/widgets/section.dart';
+import 'package:portfolio/src/views/widgets/common/heading.dart';
+import 'package:portfolio/src/views/widgets/common/p.dart';
+import 'package:portfolio/src/views/widgets/common/section.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:textf/textf.dart';
 

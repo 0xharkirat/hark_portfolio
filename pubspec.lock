@@ -397,6 +397,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
+  rough_notation:
+    dependency: "direct main"
+    description:
+      name: rough_notation
+      sha256: c2e1d2f93376a3771ae0a6888de6675d77d52ded097c2c00609c10add7a21831
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   shadcn_ui:
     dependency: "direct main"
     description:

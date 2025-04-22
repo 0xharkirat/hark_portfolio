@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:portfolio/src/views/widgets/heading.dart';
-import 'package:portfolio/src/views/widgets/p.dart';
+import 'package:portfolio/src/views/widgets/common/heading.dart';
+import 'package:portfolio/src/views/widgets/common/p.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class LI extends StatelessWidget {

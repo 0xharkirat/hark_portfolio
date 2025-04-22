@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/views/widgets/contact.dart';
-import 'package:portfolio/src/views/widgets/footer.dart';
+import 'package:portfolio/src/views/widgets/common/base_page_scaffold.dart';
+import 'package:portfolio/src/views/widgets/common/contact.dart';
+import 'package:portfolio/src/views/widgets/common/footer.dart';
 import 'package:portfolio/src/views/widgets/home/contributions_section.dart';
 import 'package:portfolio/src/views/widgets/home/projects_section.dart';
-import 'package:portfolio/src/views/widgets/home/hero_section.dart';
-import 'package:portfolio/src/views/widgets/header.dart';
+import 'package:portfolio/src/views/widgets/common/hero_section.dart';
+import 'package:portfolio/src/views/widgets/common/header.dart';
 import 'package:portfolio/src/views/widgets/home/youtube_section.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,28 +13,27 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          spacing: 48.0,
-          children: <Widget>[
-            const Header(),
+    return BasePageScaffold(
+      spacing: 48.0,
+      children: <Widget>[
+        const Header(),
 
-
-            const HeroSection(),
-
-            const ProjectsSection(),
-
-            const ContributionsSection(),
-
-            const Contact(),
-
-            const YoutubeSection(),
-
-            const Footer(),
-          ],
+        const HeroSection(
+          title: "Who",
+          description:
+              "I build solutions that are simple, helpful — and sometimes just to show off (but not really). I fail fast, build more, and keep learning better technologies. Building from the land of kangaroos.",
         ),
-      ),
+
+        const ProjectsSection(),
+
+        const ContributionsSection(),
+
+        const Contact(),
+
+        const YoutubeSection(),
+
+        const Footer(),
+      ],
     );
   }
 }
