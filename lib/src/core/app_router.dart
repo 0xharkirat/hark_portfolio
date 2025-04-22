@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/views/pages/home_page.dart';
 import 'package:portfolio/src/views/pages/labs/labs_page.dart';
-import 'package:portfolio/src/views/pages/labs/sub_labs/sub_lab_page.dart';
+import 'package:portfolio/src/views/pages/labs/sub_labs/base_sub_lab_page.dart';
 
 enum AppRoutes {
   home('/'),
@@ -33,7 +33,7 @@ final appRouter = GoRouter(
           name: AppRoutes.subLab.name,
           builder: (context, state) {
             final subLabId = state.pathParameters[PathParams.subLabId.name]!;
-            return SubLabPage(subLabId: subLabId);
+            return BaseSubLabPage(subLabId: subLabId);
           },
         ),
       ],

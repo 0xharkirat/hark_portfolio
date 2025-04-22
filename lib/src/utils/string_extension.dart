@@ -6,4 +6,9 @@ extension StringExtension on String {
     }
     return '${this[0].toUpperCase()}${substring(1)}';
   }
+
+  // convert kebab-case to PascalCase
+  String kebabToPascalCase() {
+    return split('-').map((word) => word.capitalize()).join();
+  }
 }
