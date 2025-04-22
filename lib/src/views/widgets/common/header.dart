@@ -74,8 +74,9 @@ class Header extends ConsumerWidget {
               ),
             ),
 
-            SizedBox(
-              width: 80,
+            Container(
+              padding: const EdgeInsets.only(right: 8),
+              width: 124,
               child: Center(
                 child: AnimatedIconLabelButton(
                   icon: appThemeMode.icon,

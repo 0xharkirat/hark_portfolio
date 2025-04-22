@@ -12,6 +12,8 @@ enum AppRoutes {
   const AppRoutes(this.path);
 }
 
+enum PathParams { subLabId }
+
 final appRouter = GoRouter(
   initialLocation: AppRoutes.home.path,
   debugLogDiagnostics: true,
@@ -30,7 +32,7 @@ final appRouter = GoRouter(
           path: AppRoutes.subLab.path,
           name: AppRoutes.subLab.name,
           builder: (context, state) {
-            final subLabId = state.pathParameters['subLabId']!;
+            final subLabId = state.pathParameters[PathParams.subLabId.name]!;
             return SubLabPage(subLabId: subLabId);
           },
         ),

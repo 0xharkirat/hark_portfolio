@@ -48,7 +48,7 @@ class BaseListSection<T> extends StatelessWidget {
                   context.goNamed(
                     AppRoutes.subLab.name,
                     pathParameters: {
-                      'subLabId': listItem.routeId,
+                      PathParams.subLabId.name: listItem.routeId,
                     },
                   );
                 },
