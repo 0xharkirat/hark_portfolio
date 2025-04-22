@@ -23,7 +23,7 @@ class LI extends StatelessWidget {
         splashColor: Colors.transparent,
         minVerticalPadding: 0,
         hoverColor: ShadTheme.of(context).colorScheme.card,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        contentPadding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         title: heading,
         subtitle: p,

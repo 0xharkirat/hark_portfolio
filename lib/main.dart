@@ -20,6 +20,7 @@ class MyApp extends ConsumerWidget {
     final appThemeMode = ref.watch(themeModeProvider);
 
     return ShadApp.router(
+      
       routerConfig: appRouter,
       title: 'Harkirat Singh',
       themeMode: appThemeMode.themeMode,

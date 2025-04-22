@@ -4,7 +4,7 @@ import 'package:portfolio/src/views/widgets/common/contact.dart';
 import 'package:portfolio/src/views/widgets/common/footer.dart';
 import 'package:portfolio/src/views/widgets/home/contributions_section.dart';
 import 'package:portfolio/src/views/widgets/home/projects_section.dart';
-import 'package:portfolio/src/views/widgets/common/hero_section.dart';
+import 'package:portfolio/src/views/widgets/home/hero_section.dart';
 import 'package:portfolio/src/views/widgets/common/header.dart';
 import 'package:portfolio/src/views/widgets/home/youtube_section.dart';
 

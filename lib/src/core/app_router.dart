@@ -13,7 +13,7 @@ enum AppRoutes {
 }
 
 final appRouter = GoRouter(
-  initialLocation: AppRoutes.labs.path,
+  initialLocation: AppRoutes.home.path,
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
