@@ -4,7 +4,7 @@ import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/constants.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
-import 'package:portfolio/src/utils/url_strategy.dart'; // ✅ impo
+import 'package:portfolio/src/utils/url_strategy.dart'; // ✅ important for url strategy
 
 void main() {
   setUrlStrategy();
@@ -20,7 +20,6 @@ class MyApp extends ConsumerWidget {
     final appThemeMode = ref.watch(themeModeProvider);
 
     return ShadApp.router(
-      
       routerConfig: appRouter,
       title: 'Harkirat Singh',
       themeMode: appThemeMode.themeMode,
@@ -31,6 +30,7 @@ class MyApp extends ConsumerWidget {
           secondary: DarkThemeColors.gray1100.color,
           border: DarkThemeColors.gray400.color,
           card: DarkThemeColors.gray200.color,
+          popover: Color(0xFF0b0b0a),
         ),
         brightness: Brightness.dark,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),
@@ -42,6 +42,7 @@ class MyApp extends ConsumerWidget {
           secondary: LightThemeColors.gray1100.color,
           border: LightThemeColors.gray400.color,
           card: LightThemeColors.gray200.color,
+          popover: Colors.white,
         ),
         brightness: Brightness.light,
         textTheme: ShadTextTheme.fromGoogleFont(fonts),
