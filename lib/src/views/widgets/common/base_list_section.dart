@@ -14,9 +14,11 @@ class BaseListSection<T> extends StatelessWidget {
     super.key,
     required this.title,
     required this.listItems,
+    this.moreText,
   });
   final String title;
   final List<T> listItems;
+  final String? moreText;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,12 @@ class BaseListSection<T> extends StatelessWidget {
             return const SizedBox(height: 16);
           },
         ),
+
+        if (moreText != null) ...[
+          const SizedBox(height: 20),
+
+          P(text: moreText!),
+        ],
       ],
     );
   }

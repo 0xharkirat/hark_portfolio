@@ -7,6 +7,6 @@ class LabsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseListSection<SubRouteListItem>(title: "Labs", listItems: labListItems);
+    return BaseListSection<SubRouteListItem>(title: "Labs", listItems: labListItems, moreText: "Cooking more labs...");
   }
 }

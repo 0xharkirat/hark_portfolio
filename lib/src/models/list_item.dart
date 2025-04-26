@@ -10,7 +10,7 @@ final List<ListItem> projectListItems = [
   ListItem(
     heading: 'Rough Notation Flutter',
     description: 'Animated, hand-drawn-style annotations for Flutter widgets.',
-    url: 'https://roughnotation-flutter.web.app',
+    url: 'https://roughnotation.0xharkirat.com',
   ),
   ListItem(
     heading: 'UI Avatar',

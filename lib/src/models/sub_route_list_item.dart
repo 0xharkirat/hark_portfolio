@@ -33,15 +33,4 @@ final List<SubRouteListItem> labListItems = [
         "This Flutter widget is based on the [Emil Kowalski's](https://emilkowal.ski/ui/building-a-hold-to-delete-component) Hold to delete button.",
     routeId: LabSubRoute.holdToActionButton.routeId,
   ),
-  SubRouteListItem(
-    heading: 'UI Avatar',
-    description:
-        'Generate beautiful, text-based avatars with initials in Flutter.',
-    routeId: LabSubRoute.uiAvatar.routeId,
-  ),
-  SubRouteListItem(
-    heading: 'Live Darbar App',
-    description: 'A powerful app for streaming live Kirtan from Darbar Sahib.',
-    routeId: LabSubRoute.liveDarbarApp.routeId,
-  ),
 ];
