@@ -8,13 +8,16 @@ class HeroSection extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    this.outerPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 40.0),
   });
   final String title;
   final String description;
+  final EdgeInsets outerPadding;
 
   @override
   Widget build(BuildContext context) {
     return Section(
+      outerPadding: outerPadding,
       children: [
         Heading(text: title),
         const SizedBox(height: 20),

@@ -30,7 +30,7 @@ final List<SubRouteListItem> labListItems = [
   SubRouteListItem(
     heading: 'Hold To Action Button',
     description:
-        "This Flutter widget is based on the Emil Kowalski's origninal Hold to delete button.",
+        "This Flutter widget is based on the [Emil Kowalski's](https://emilkowal.ski/ui/building-a-hold-to-delete-component) Hold to delete button.",
     routeId: LabSubRoute.holdToActionButton.routeId,
   ),
   SubRouteListItem(

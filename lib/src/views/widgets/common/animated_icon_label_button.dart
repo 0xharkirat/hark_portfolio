@@ -10,7 +10,7 @@ class AnimatedIconLabelButton extends StatefulWidget {
     this.duration = const Duration(milliseconds: 200),
     this.textStyle,
     this.iconColor,
-    this.spacing = 8.0,
+    this.spacing = 4.0,
     this.direction = AxisDirection.right,
     this.isExapandedFirst = false,
 

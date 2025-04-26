@@ -36,6 +36,7 @@ class BaseSubLabPage extends StatelessWidget {
         HeroSection(
           title: subLabData.heading,
           description: subLabData.description,
+          outerPadding: const EdgeInsets.symmetric(horizontal: 16),
         ),
         _getLabContent(routeEnum),
         const Contact(),
