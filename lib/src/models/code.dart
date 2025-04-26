@@ -1,3 +1,6 @@
+
+
+const holdToActionButtonCode = '''
 // hold_to_action_button.dart
 import 'dart:developer';
 import 'package:flutter/material.dart';
@@ -306,3 +309,68 @@ class _HoldToActionButtonState extends State<HoldToActionButton>
     );
   }
 }
+''';
+
+final holdToActionButtonExampleCode = '''
+// main.dart (full example)
+import 'package:flutter/material.dart';
+import 'hold_to_action_button.dart'; // assuming that your HoldToActionButton is in the same directory
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Hold to Action Button Example',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const HoldToActionButtonExample(),
+    );
+  }
+}
+
+class HoldToActionButtonExample extends StatefulWidget {
+  const HoldToActionButtonExample({super.key});
+
+  @override
+  State<HoldToActionButtonExample> createState() =>
+      _HoldToActionButtonExampleState();
+}
+
+class _HoldToActionButtonExampleState extends State<HoldToActionButtonExample> {
+
+  int _counter = 0;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Hold to Action Button Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            HoldToActionButton(
+              
+              icon: const Icon(Icons.add),
+              text: 'Hold to Increment',
+              onHoldComplete: _incrementCounter,
+            ),
+            const SizedBox(height: 32),
+            Text('Counter: \$_counter'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+''';

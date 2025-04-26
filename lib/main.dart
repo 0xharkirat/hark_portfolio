@@ -4,10 +4,28 @@ import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/constants.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
-import 'package:portfolio/src/utils/url_strategy.dart'; // ✅ important for url strategy
+import 'package:portfolio/src/utils/url_strategy.dart';
+import 'package:syntax_highlight/syntax_highlight.dart'; // ✅ important for url strategy
 
-void main() {
+late final Highlighter dartLightHighlighter;
+late final Highlighter dartDarkHighlighter;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   setUrlStrategy();
+
+  // Initialize the highlighter.
+  await Highlighter.initialize(['dart']);
+
+  // Load the default light theme and create a highlighter.
+  var lightTheme = await HighlighterTheme.loadLightTheme();
+  dartLightHighlighter = Highlighter(language: 'dart', theme: lightTheme);
+
+  // Load the default dark theme and create a highlighter.
+  var darkTheme = await HighlighterTheme.loadDarkTheme();
+  dartDarkHighlighter = Highlighter(language: 'dart', theme: darkTheme);
+
   runApp(ProviderScope(child: const MyApp()));
 }
 

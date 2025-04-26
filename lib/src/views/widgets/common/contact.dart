@@ -23,7 +23,6 @@ class Contact extends StatelessWidget {
         const SizedBox(height: 16),
         // create three buttons in a row, twitter dm, email me, copy email
         Wrap(
-         
           children: [
             Button(
               text: "Dm me",
@@ -32,7 +31,6 @@ class Contact extends StatelessWidget {
                     "https://twitter.com/messages/compose?recipient_id=1334824502497165312",
                   ),
               icon: LucideIcons.twitter,
-              
             ),
             Button(
               icon: LucideIcons.mail,
@@ -40,27 +38,19 @@ class Contact extends StatelessWidget {
               text: "Email Me",
               onTap: () => linkOpen("mailto://info.sandhukirat23@gmail.com"),
             ),
-            
 
             Button(
               width: 141,
               text: "Copy Email",
               onTap: () {
-                Clipboard.setData(
-                  const ClipboardData(text: "info.sandhukirat23@gmail.com"),
-                );
+                copyText('info.sandhukirat23@gmail.com');
                 ShadToaster.of(context).show(
-                  const ShadToast(
-                    duration: Duration(seconds: 5),
-                    showCloseIconOnlyWhenHovered: false,
-                    closeIconPosition: ShadPosition(
-                      right: 0,
-                      top: 0,
-                      bottom: 0,
-                    ),
-                    alignment: Alignment.bottomCenter,
+                  showToast(
                     title: Heading(text: "info.sandhukirat23@gmail.com"),
-                    description: P(text: 'Email copied to clipboard'),
+                    description: P(
+                      text: 'Email copied to clipboard',
+                      isSelectable: false,
+                    ),
                   ),
                 );
               },
@@ -71,6 +61,8 @@ class Contact extends StatelessWidget {
       ],
     );
   }
+
+ 
 }
 
 class Button extends StatelessWidget {

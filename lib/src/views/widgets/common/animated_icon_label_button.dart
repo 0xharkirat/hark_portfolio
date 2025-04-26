@@ -16,6 +16,7 @@ class AnimatedIconLabelButton extends StatefulWidget {
 
 
     this.shrinkDelay = const Duration(seconds: 2),
+    this.height = 28,
   });
 
   final IconData icon;
@@ -29,6 +30,7 @@ class AnimatedIconLabelButton extends StatefulWidget {
 
   final Duration shrinkDelay;
   final bool isExapandedFirst;
+  final double height;
 
   @override
   State<AnimatedIconLabelButton> createState() =>
@@ -114,7 +116,7 @@ class _AnimatedIconLabelButtonState extends State<AnimatedIconLabelButton>
     return [
       Icon(widget.icon, color: widget.iconColor),
       SizedBox(
-        height: 28, // consistent alignment with text
+        height: widget.height, // consistent alignment with text
         child: AnimatedSwitcher(
           duration: widget.duration,
           transitionBuilder:
