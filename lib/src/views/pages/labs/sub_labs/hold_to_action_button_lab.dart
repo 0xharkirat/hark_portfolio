@@ -64,6 +64,7 @@ class _HoldToActionButtonLabState extends ConsumerState<HoldToActionButtonLab> {
                   backgroundColor: ShadTheme.of(context).colorScheme.primary,
                   icon: Icon(LucideIcons.plus),
                   text: 'Hold to Increment',
+                  textColor: ShadTheme.of(context).colorScheme.background,
                   onHoldComplete: _incrementCounter,
                 ),
 
