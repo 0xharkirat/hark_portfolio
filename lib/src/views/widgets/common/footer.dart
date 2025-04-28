@@ -24,7 +24,7 @@ class Footer extends StatelessWidget {
                 
         ),
         const SizedBox(height: 20),
-        P(text: "I acknowledge and deeply appreciate the original design, creativity, and overall inspiration behind this site — all credited to Emil Kowalski. This version is a Flutter-based reimagination of his beautifully crafted portfolio, built for learning, admiration, and open source love.")
+        P(text: "I acknowledge and deeply appreciate the original design, creativity, and overall inspiration behind this site — all credited to [Emil Kowalski](https://emilkowal.ski/). This version is a Flutter-based version of his beautifully crafted portfolio, built for learning, admiration, and open source love.")
       ],
     );
   }

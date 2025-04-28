@@ -7,6 +7,7 @@ import 'package:portfolio/src/views/widgets/home/projects_section.dart';
 import 'package:portfolio/src/views/widgets/home/hero_section.dart';
 import 'package:portfolio/src/views/widgets/common/header.dart';
 import 'package:portfolio/src/views/widgets/home/youtube_section.dart';
+import 'package:portfolio/src/views/widgets/labs/labs_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,11 +25,13 @@ class HomePage extends StatelessWidget {
               "I build solutions that are simple, helpful — and sometimes just to show off (but not really). I fail fast, build more, and keep learning better technologies. Building from the land of kangaroos.",
         ),
 
+        const Contact(),
+
+        const LabsSection(),
+
         const ProjectsSection(),
 
         const ContributionsSection(),
-
-        const Contact(),
 
         const YoutubeSection(),
 
