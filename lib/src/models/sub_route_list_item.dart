@@ -12,8 +12,7 @@ class SubRouteListItem {
 
 enum LabSubRoute {
   holdToActionButton('hold-to-action-button'),
-  uiAvatar('ui-avatar'),
-  liveDarbarApp('live-darbar-app');
+  roughNotation('rough-notation');
 
   final String routeId;
   const LabSubRoute(this.routeId);
@@ -32,5 +31,11 @@ final List<SubRouteListItem> labListItems = [
     description:
         "This Flutter widget is based on the [Emil Kowalski's](https://emilkowal.ski/ui/building-a-hold-to-delete-component) Hold to delete button.",
     routeId: LabSubRoute.holdToActionButton.routeId,
+  ),
+  SubRouteListItem(
+    heading: 'Rough Notation Flutter',
+    description:
+        "Create animated, hand-drawn-style annotations on widgets.",
+    routeId: LabSubRoute.roughNotation.routeId,
   ),
 ];

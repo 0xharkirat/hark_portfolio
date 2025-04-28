@@ -7,6 +7,7 @@ import 'package:portfolio/src/utils/methods.dart';
 import 'package:portfolio/src/views/widgets/common/animated_icon_label_button.dart';
 import 'package:portfolio/src/views/widgets/common/heading.dart';
 import 'package:portfolio/src/views/widgets/common/p.dart';
+import 'package:portfolio/src/views/widgets/common/playground_container.dart';
 import 'package:portfolio/src/views/widgets/common/section.dart';
 import 'package:portfolio/src/views/widgets/package/hold_to_action_button.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -182,38 +183,6 @@ class _HoldToActionButtonLabState extends ConsumerState<HoldToActionButtonLab> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class PlaygroundContainer extends StatelessWidget {
-  const PlaygroundContainer({
-    super.key,
-    this.child,
-    this.height = 300,
-    this.padding = const EdgeInsets.all(16),
-  });
-
-  final double height;
-  final Widget? child;
-  final EdgeInsets padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: double.infinity,
-      padding: padding,
-      decoration: BoxDecoration(
-        color: ShadTheme.of(context).colorScheme.popover,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: ShadTheme.of(context).colorScheme.border,
-          width: 2,
-        ),
-      ),
-
-      child: child,
     );
   }
 }
