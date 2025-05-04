@@ -13,7 +13,9 @@ class LabsPage extends StatelessWidget {
     return BasePageScaffold(
       children: [
         const Header(),
-        const LabsSection(),
+        const LabsSection(
+          animate: false,
+        ),
         const Contact(),
         const Footer(),
       ],

@@ -14,7 +14,7 @@ class BasePageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(spacing: 48.0, children: children),
+        child: Column(spacing: spacing, children: children),
       ),
     );
   }

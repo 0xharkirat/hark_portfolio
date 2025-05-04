@@ -55,24 +55,24 @@ class Header extends ConsumerWidget {
               ),
             ),
 
-            SizedBox(
-              width: 60,
-              child: Center(
-                child: AnimatedIconLabelButton(
-                  icon: LucideIcons.blocks,
-                  label: "Labs",
-                  onTap: () => context.goNamed(AppRoutes.labs.name),
-                  iconColor: ShadTheme.of(context).colorScheme.secondary,
-                  textStyle: ShadTheme.of(context).textTheme.p.copyWith(
-                    color: ShadTheme.of(context).colorScheme.secondary,
-                  ),
-                  direction: AxisDirection.right,
-                  isExapandedFirst: isLabs,
+            // SizedBox(
+            //   width: 60,
+            //   child: Center(
+            //     child: AnimatedIconLabelButton(
+            //       icon: LucideIcons.blocks,
+            //       label: "Labs",
+            //       onTap: () => context.goNamed(AppRoutes.labs.name),
+            //       iconColor: ShadTheme.of(context).colorScheme.secondary,
+            //       textStyle: ShadTheme.of(context).textTheme.p.copyWith(
+            //         color: ShadTheme.of(context).colorScheme.secondary,
+            //       ),
+            //       direction: AxisDirection.right,
+            //       isExapandedFirst: isLabs,
 
-                  spacing: 4.0,
-                ),
-              ),
-            ),
+            //       spacing: 4.0,
+            //     ),
+            //   ),
+            // ),
 
             Container(
               padding: const EdgeInsets.only(right: 8),

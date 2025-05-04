@@ -15,7 +15,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePageScaffold(
-      spacing: 48.0,
+      spacing: 0,
+
       children: <Widget>[
         const Header(),
 
@@ -27,13 +28,19 @@ class HomePage extends StatelessWidget {
 
         const Contact(),
 
-        const LabsSection(),
+        SizedBox(height: 48),
+
+        const LabsSection(
+          animate: true,
+        ),
 
         const ProjectsSection(),
 
         const ContributionsSection(),
 
         const YoutubeSection(),
+
+        const SizedBox(height: 48),
 
         const Footer(),
       ],
