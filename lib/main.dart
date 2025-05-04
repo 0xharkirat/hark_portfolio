@@ -5,8 +5,8 @@ import 'package:portfolio/src/controllers/theme_mode_controller.dart';
 import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/constants.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
-import 'package:portfolio/src/utils/url_strategy.dart';
-import 'package:syntax_highlight/syntax_highlight.dart'; // ✅ important for url strategy
+import 'package:portfolio/src/utils/url_strategy.dart'; // ✅ important for url strategy
+import 'package:syntax_highlight/syntax_highlight.dart';
 
 late final Highlighter dartLightHighlighter;
 late final Highlighter dartDarkHighlighter;
@@ -37,9 +37,10 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appThemeMode = ref.watch(themeModeProvider);
+    final appRouter = ref.watch(goRouter);
 
     return ShadApp.router(
-      routerConfig: goRouter,
+      routerConfig: appRouter,
       title: AppRoutes.home.title,
       themeMode: appThemeMode.themeMode,
       darkTheme: ShadThemeData(

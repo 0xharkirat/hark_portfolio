@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,18 +6,20 @@ import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/utils/string_extension.dart';
 import 'package:portfolio/src/views/widgets/common/animated_icon_label_button.dart';
 import 'package:portfolio/src/views/widgets/common/heading.dart';
+import 'package:portfolio/src/views/widgets/common/hero_logo_widget.dart';
 import 'package:portfolio/src/views/widgets/common/p.dart';
 import 'package:portfolio/src/views/widgets/common/section.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class Header extends ConsumerWidget {
-  const Header({super.key});
+  const Header({super.key, this.showThemeButton = true});
+  final bool showThemeButton;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appThemeMode = ref.watch(themeModeProvider);
-    final isLabs = GoRouter.of(context).state.matchedLocation == AppRoutes.labs.path;
-   
+    final isLabs =
+        GoRouter.of(context).state.matchedLocation == AppRoutes.labs.path;
 
     return Section(
       children: [
@@ -30,30 +30,7 @@ class Header extends ConsumerWidget {
           // mainAxisSize: MainAxisSize.min,
           children: [
             // Left: Name and subtitle
-            InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              splashFactory: NoSplash.splashFactory,
-              hoverColor: Colors.transparent,
-
-              onTap: () {
-                context.goNamed(AppRoutes.home.name);
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Heading(text: 'Harkirat Singh', isSelectable: false),
-
-                  P(
-                    text: 'Software Artisan',
-                    isSelectable: false,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ],
-              ),
-            ),
+            HeroLogoWidget(),
 
             // SizedBox(
             //   width: 60,
@@ -74,6 +51,7 @@ class Header extends ConsumerWidget {
             //   ),
             // ),
 
+            showThemeButton?
             Container(
               padding: const EdgeInsets.only(right: 8),
               width: 124,
@@ -92,7 +70,7 @@ class Header extends ConsumerWidget {
                   spacing: 4.0,
                 ),
               ),
-            ),
+            ): SizedBox.shrink(),
           ],
         ),
       ],

@@ -14,9 +14,9 @@ class AnimatedIconLabelButton extends StatefulWidget {
     this.direction = AxisDirection.right,
     this.isExapandedFirst = false,
 
-
     this.shrinkDelay = const Duration(seconds: 2),
     this.height = 28,
+    this.animate = true,
   });
 
   final IconData icon;
@@ -31,20 +31,19 @@ class AnimatedIconLabelButton extends StatefulWidget {
   final Duration shrinkDelay;
   final bool isExapandedFirst;
   final double height;
+  final bool animate;
 
   @override
   State<AnimatedIconLabelButton> createState() =>
       _AnimatedIconLabelButtonState();
 }
 
-class _AnimatedIconLabelButtonState extends State<AnimatedIconLabelButton>
-     {
+class _AnimatedIconLabelButtonState extends State<AnimatedIconLabelButton> {
   late bool _expanded;
   Timer? _shrinkTimer;
 
   @override
   void initState() {
-    
     super.initState();
     _expanded = widget.isExapandedFirst;
 

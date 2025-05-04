@@ -21,40 +21,43 @@ class Contact extends StatelessWidget {
 
         const SizedBox(height: 16),
         // create three buttons in a row, twitter dm, email me, copy email
-        Wrap(
-          children: [
-            Button(
-              text: "Dm me",
-              onTap:
-                  () => linkOpen(
-                    "https://twitter.com/messages/compose?recipient_id=1334824502497165312",
-                  ),
-              icon: LucideIcons.twitter,
-            ),
-            Button(
-              icon: LucideIcons.mail,
-
-              text: "Email Me",
-              onTap: () => linkOpen("mailto://info.sandhukirat23@gmail.com"),
-            ),
-
-            Button(
-              text: "Copy Email",
-              onTap: () {
-                copyText('info.sandhukirat23@gmail.com');
-                ShadToaster.of(context).show(
-                  showToast(
-                    title: Heading(text: "info.sandhukirat23@gmail.com"),
-                    description: P(
-                      text: 'Email copied to clipboard',
-                      isSelectable: false,
+        Transform.translate(
+          offset: const Offset(-4, 0),
+          child: Wrap(
+            children: [
+              Button(
+                text: "Dm me",
+                onTap:
+                    () => linkOpen(
+                      "https://twitter.com/messages/compose?recipient_id=1334824502497165312",
                     ),
-                  ),
-                );
-              },
-              icon: LucideIcons.copy,
-            ),
-          ],
+                icon: LucideIcons.twitter,
+              ),
+              Button(
+                icon: LucideIcons.mail,
+          
+                text: "Email Me",
+                onTap: () => linkOpen("mailto://info.sandhukirat23@gmail.com"),
+              ),
+          
+              Button(
+                text: "Copy Email",
+                onTap: () {
+                  copyText('info.sandhukirat23@gmail.com');
+                  ShadToaster.of(context).show(
+                    showToast(
+                      title: Heading(text: "info.sandhukirat23@gmail.com"),
+                      description: P(
+                        text: 'Email copied to clipboard',
+                        isSelectable: false,
+                      ),
+                    ),
+                  );
+                },
+                icon: LucideIcons.copy,
+              ),
+            ],
+          ),
         ),
       ],
     );
