@@ -4,6 +4,7 @@ import 'package:portfolio/src/core/app_router.dart';
 import 'package:portfolio/src/models/list_item.dart';
 import 'package:portfolio/src/models/sub_route_list_item.dart';
 import 'package:portfolio/src/utils/methods.dart';
+import 'package:portfolio/src/utils/string_extension.dart';
 import 'package:portfolio/src/views/widgets/common/heading.dart';
 import 'package:portfolio/src/views/widgets/common/li.dart';
 import 'package:portfolio/src/views/widgets/common/p.dart';
@@ -18,6 +19,7 @@ class BaseListSection<T> extends StatefulWidget {
     this.moreText,
     this.headingIcon,
     this.animate = true,
+    this.animationIndex = 0,
   });
 
   final String title;
@@ -25,6 +27,7 @@ class BaseListSection<T> extends StatefulWidget {
   final String? moreText;
   final IconData? headingIcon;
   final bool animate;
+  final int animationIndex;
 
   @override
   State<BaseListSection<T>> createState() => _BaseListSectionState<T>();
@@ -105,8 +108,7 @@ class _BaseListSectionState<T> extends State<BaseListSection<T>> {
           child: ShadButton.ghost(
             size: ShadButtonSize.sm,
             onPressed: widget.animate ? _toggleExpanded : null,
-            
-               
+
             leading: AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
               switchInCurve: Curves.easeInOutCubic,
@@ -125,7 +127,7 @@ class _BaseListSectionState<T> extends State<BaseListSection<T>> {
                         widget.headingIcon,
                         key: const ValueKey('box'),
                         color: iconColor,
-                      ),
+                      ).withStagger( widget.animationIndex),
             ),
             child: Heading(
               text: widget.title,
@@ -134,6 +136,7 @@ class _BaseListSectionState<T> extends State<BaseListSection<T>> {
             ),
           ),
         ),
+
         const SizedBox(height: 12),
         widget.animate
             ? AnimatedSwitcher(

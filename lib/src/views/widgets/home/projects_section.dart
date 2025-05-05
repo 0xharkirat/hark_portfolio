@@ -8,6 +8,6 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseListSection<ListItem>(title: "Projects", listItems: projectListItems, headingIcon: LucideIcons.package,);
+    return BaseListSection<ListItem>(title: "Projects", listItems: projectListItems, headingIcon: LucideIcons.package, animationIndex: 1,);
   }
 }

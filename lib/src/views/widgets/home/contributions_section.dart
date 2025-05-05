@@ -12,6 +12,7 @@ class ContributionsSection extends StatelessWidget {
       title: 'Contributions',
       listItems: contributionListItems,
       headingIcon: LucideIcons.gitPullRequestArrow,
+      animationIndex: 2,
     );
   }
 }

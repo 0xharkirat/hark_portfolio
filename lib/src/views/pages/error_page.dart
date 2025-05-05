@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:portfolio/src/views/widgets/common/base_page_scaffold.dart';
 import 'package:portfolio/src/views/widgets/common/contact.dart';
@@ -7,7 +6,6 @@ import 'package:portfolio/src/views/widgets/common/footer.dart';
 import 'package:portfolio/src/views/widgets/common/hero_logo_widget.dart';
 import 'package:portfolio/src/views/widgets/common/section.dart';
 import 'package:portfolio/src/views/widgets/home/hero_section.dart';
-
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -18,11 +16,7 @@ class ErrorPage extends StatelessWidget {
       spacing: 0,
 
       children: <Widget>[
-        Section(
-          children: [
-            const HeroLogoWidget(),
-          ],
-        ),
+        Section(children: [const HeroLogoWidget()]),
 
         const HeroSection(
           title: "Page does not exist",

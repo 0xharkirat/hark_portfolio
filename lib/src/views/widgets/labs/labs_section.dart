@@ -15,6 +15,7 @@ class LabsSection extends StatelessWidget {
       moreText: "Cooking more labs...",
       headingIcon: LucideIcons.blocks,
       animate: animate,
+      animationIndex: 0,
     );
   }
 }
