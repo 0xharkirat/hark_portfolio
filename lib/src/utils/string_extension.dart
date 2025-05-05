@@ -19,7 +19,7 @@ extension StringExtension on String {
 extension AnimateWithDelay on Widget {
   Widget withStagger(int index) {
     final delay = Duration(milliseconds: 800 * index);
-    const totalCycle = Duration(milliseconds: 8000);
+    const totalCycle = Duration(milliseconds: 7000);
 
     return animate(
           onPlay: (controller) async {
@@ -46,7 +46,7 @@ extension AnimateWithDelay on Widget {
         .shake(
           delay: Duration.zero,
           duration: 1800.ms,
-          hz: 16,
+          hz: 4,
           curve: Curves.easeInOutCubic,
         )
         .scaleXY(
