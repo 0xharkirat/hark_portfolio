@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/src/models/sub_route_list_item.dart';
+import 'package:portfolio/src/views/pages/labs/sub_labs/animated_switcher_lab.dart';
 import 'package:portfolio/src/views/pages/labs/sub_labs/hold_to_action_button_lab.dart';
 import 'package:portfolio/src/views/pages/labs/sub_labs/rough_notation_lab.dart';
 import 'package:portfolio/src/views/widgets/common/base_page_scaffold.dart';
@@ -20,6 +21,8 @@ class BaseSubLabPage extends StatelessWidget {
         return const HoldToActionButtonLab();
       case LabSubRoute.roughNotation:
         return const RoughNotationLab();
+      case LabSubRoute.animatedSwitchToggleButton:
+        return const AnimatedSwitcherLab();
       default:
         return const Center(child: Text('Lab content not available'));
     }

@@ -23,9 +23,7 @@ class RoughNotationLab extends ConsumerStatefulWidget {
 class _RoughNotationLabState extends ConsumerState<RoughNotationLab> {
   @override
   Widget build(BuildContext context) {
-    final themeMode = ref.watch(themeModeProvider);
-    final secondary = ShadTheme.of(context).colorScheme.secondary;
-    final primary = ShadTheme.of(context).colorScheme.primary;
+    
     return Section(
       outerPadding: const EdgeInsets.only(left: 16, right: 16.0, bottom: 40.0),
       children: [
