@@ -12,7 +12,7 @@ class SubRouteListItem {
 
 enum LabSubRoute {
   holdToActionButton('hold-to-action-button'),
-  animatedSwitchToggleButton('animated-switcher-toggle-button'),
+  animatedRotateButton('animated-rotate-button'),
   roughNotation('rough-notation');
 
   final String routeId;
@@ -39,9 +39,9 @@ final List<SubRouteListItem> labListItems = [
     routeId: LabSubRoute.roughNotation.routeId,
   ),
   SubRouteListItem(
-    heading: 'Animated Switcher Toggle Button',
+    heading: 'Animated Rotate Button',
     description:
         "This Flutter widget is based on [Jakub Krehel's](https://x.com/jakubkrehel/status/1911816000107901308) tweet.",
-    routeId: LabSubRoute.animatedSwitchToggleButton.routeId,
+    routeId: LabSubRoute.animatedRotateButton.routeId,
   ),
 ];

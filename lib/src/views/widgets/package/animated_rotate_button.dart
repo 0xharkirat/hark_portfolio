@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ToggleState {
+class RotateState {
   final String label;
-  final IconData? icon;
+  final IconData? icon; // Leading icon
+
   final Color? backgroundColor;
   final Color? foregroundColor;
   final TextStyle? textStyle;
   final String? semanticLabel;
 
-  const ToggleState({
+  const RotateState({
     required this.label,
     this.icon,
+
     this.backgroundColor,
     this.foregroundColor,
     this.textStyle,
@@ -18,37 +20,38 @@ class ToggleState {
   });
 }
 
-class AnimatedSwitcherToggleButton extends StatefulWidget {
-  final List<ToggleState> states;
+
+class AnimatedRotateButton extends StatefulWidget {
+  final List<RotateState> states;
   final int initialIndex;
-  final int? changeIndexTo;
   final Duration duration;
   final void Function(int index)? onChanged;
   final Widget? leadingFallback;
   final Widget? trailing;
   final double height;
   final double borderRadius;
+  final int? changeIndexTo;
 
-  const AnimatedSwitcherToggleButton({
+  const AnimatedRotateButton({
     super.key,
     required this.states,
     this.initialIndex = 0,
-    this.changeIndexTo,
     this.duration = const Duration(milliseconds: 500),
     this.onChanged,
     this.leadingFallback,
     this.trailing,
     this.height = 50,
     this.borderRadius = 25.0,
+    this.changeIndexTo,
   });
 
   @override
-  State<AnimatedSwitcherToggleButton> createState() =>
-      _AnimatedSwitcherToggleButtonState();
+  State<AnimatedRotateButton> createState() =>
+      _AnimatedRotateButtonState();
 }
 
-class _AnimatedSwitcherToggleButtonState
-    extends State<AnimatedSwitcherToggleButton>
+class _AnimatedRotateButtonState
+    extends State<AnimatedRotateButton>
     with TickerProviderStateMixin {
   late int _currentIndex;
   late int _nextIndex;
@@ -62,9 +65,9 @@ class _AnimatedSwitcherToggleButtonState
 
   bool _isAnimating = false;
 
-  bool get _hasAnyIcon =>
-      widget.states.any((s) => s.icon != null) ||
-      widget.leadingFallback != null;
+  bool get _hasAnyIcon {
+    return widget.states.any((s) => s.icon != null) || widget.leadingFallback != null;
+  }
 
   @override
   void initState() {
@@ -75,8 +78,33 @@ class _AnimatedSwitcherToggleButtonState
     _setupAnimations();
   }
 
+  void _setupAnimations() {
+    final curve = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOutCubic,
+    );
+
+    _slideOut = Tween<Offset>(begin: Offset.zero, end: const Offset(0, 1)).animate(curve);
+    _slideIn = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(curve);
+    _fadeOut = Tween<double>(begin: 1, end: 0).animate(curve);
+    _fadeIn = Tween<double>(begin: 0, end: 1).animate(curve);
+
+    final fromBg = widget.states[_currentIndex].backgroundColor ??
+        (_currentIndex.isEven ? Colors.black12 : Colors.black);
+    final toBg = widget.states[_nextIndex].backgroundColor ??
+        (_nextIndex.isEven ? Colors.black12 : Colors.black);
+
+    final fromFg = widget.states[_currentIndex].foregroundColor ??
+        (_currentIndex.isEven ? Colors.black : Colors.white);
+    final toFg = widget.states[_nextIndex].foregroundColor ??
+        (_nextIndex.isEven ? Colors.black : Colors.white);
+
+    _backgroundColorAnimation = ColorTween(begin: fromBg, end: toBg).animate(curve);
+    _foregroundColorAnimation = ColorTween(begin: fromFg, end: toFg).animate(curve);
+  }
+
   @override
-  void didUpdateWidget(covariant AnimatedSwitcherToggleButton oldWidget) {
+  void didUpdateWidget(covariant AnimatedRotateButton oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.changeIndexTo != null &&
@@ -84,53 +112,6 @@ class _AnimatedSwitcherToggleButtonState
         widget.changeIndexTo != _nextIndex) {
       changeCurrentState(widget.changeIndexTo!);
     }
-  }
-
-  void _setupAnimations() {
-    final curve = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOutCubic,
-    );
-
-    _slideOut = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0, 1),
-    ).animate(curve);
-    _slideIn = Tween<Offset>(
-      begin: const Offset(0, -1),
-      end: Offset.zero,
-    ).animate(curve);
-    _fadeOut = Tween<double>(begin: 1, end: 0).animate(curve);
-    _fadeIn = Tween<double>(begin: 0, end: 1).animate(curve);
-
-    final fromBg =
-        widget.states[_currentIndex].backgroundColor ??
-        (_currentIndex.isEven ? Colors.black12 : Colors.black);
-    final toBg =
-        widget.states[_nextIndex].backgroundColor ??
-        (_nextIndex.isEven ? Colors.black12 : Colors.black);
-
-    final fromFg =
-        widget.states[_currentIndex].foregroundColor ??
-        (_currentIndex.isEven ? Colors.black : Colors.white);
-    final toFg =
-        widget.states[_nextIndex].foregroundColor ??
-        (_nextIndex.isEven ? Colors.black : Colors.white);
-
-    _backgroundColorAnimation = ColorTween(
-      begin: fromBg,
-      end: toBg,
-    ).animate(curve);
-    _foregroundColorAnimation = ColorTween(
-      begin: fromFg,
-      end: toFg,
-    ).animate(curve);
-  }
-
-  void _rotate() {
-    final next = (_currentIndex + 1) % widget.states.length;
-    _animateTo(next);
-    widget.onChanged?.call(_currentIndex);
   }
 
   void changeCurrentState(int index) {
@@ -159,38 +140,41 @@ class _AnimatedSwitcherToggleButtonState
     });
   }
 
+
+
+  void _rotate() async {
+    if (_isAnimating || widget.states.length < 2) return;
+
+    setState(() {
+      _isAnimating = true;
+      _nextIndex = (_currentIndex + 1) % widget.states.length;
+    });
+
+    _setupAnimations(); // Reset transitions
+    await _controller.forward(from: 0);
+
+    setState(() {
+      _currentIndex = _nextIndex;
+      _isAnimating = false;
+    });
+
+    widget.onChanged?.call(_currentIndex);
+  }
+
   Widget _buildIcon(Color foregroundColor) {
     final currentState = widget.states[_currentIndex];
     final nextState = widget.states[_nextIndex];
 
-    final currentIcon =
-        currentState.icon != null
-            ? Icon(
-              currentState.icon,
-              key: ValueKey(currentState.icon),
-              color: foregroundColor,
-              size: 20,
-            )
-            : widget.leadingFallback != null
-            ? KeyedSubtree(
-              key: const ValueKey('fallback'),
-              child: widget.leadingFallback!,
-            )
+    final currentIcon = currentState.icon != null
+        ? Icon(currentState.icon, key: ValueKey(currentState.icon), color: foregroundColor, size: 20)
+        : widget.leadingFallback != null
+            ? KeyedSubtree(key: const ValueKey('fallback'), child: widget.leadingFallback!)
             : const SizedBox.shrink(key: ValueKey('empty'));
 
-    final nextIcon =
-        nextState.icon != null
-            ? Icon(
-              nextState.icon,
-              key: ValueKey(nextState.icon),
-              color: foregroundColor,
-              size: 20,
-            )
-            : widget.leadingFallback != null
-            ? KeyedSubtree(
-              key: const ValueKey('fallback'),
-              child: widget.leadingFallback!,
-            )
+    final nextIcon = nextState.icon != null
+        ? Icon(nextState.icon, key: ValueKey(nextState.icon), color: foregroundColor, size: 20)
+        : widget.leadingFallback != null
+            ? KeyedSubtree(key: const ValueKey('fallback'), child: widget.leadingFallback!)
             : const SizedBox.shrink(key: ValueKey('empty'));
 
     final iconStack = Stack(
@@ -223,24 +207,22 @@ class _AnimatedSwitcherToggleButtonState
     final currentLabel = Text(
       currentState.label,
       key: ValueKey(currentState.label),
-      style:
-          currentState.textStyle ??
+      style: currentState.textStyle ??
           TextStyle(color: fallbackColor, fontWeight: FontWeight.w500),
     );
 
     final nextLabel = Text(
       nextState.label,
       key: ValueKey(nextState.label),
-      style:
-          nextState.textStyle ??
+      style: nextState.textStyle ??
           TextStyle(color: fallbackColor, fontWeight: FontWeight.w500),
     );
 
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 4.0,
       children: [
         _buildIcon(fallbackColor),
-        const SizedBox(width: 4),
         AnimatedSize(
           duration: widget.duration,
           curve: Curves.easeInOutCubic,
@@ -279,17 +261,15 @@ class _AnimatedSwitcherToggleButtonState
       builder: (context, child) {
         final currentState = widget.states[_currentIndex];
 
-        final background =
-            _isAnimating
-                ? _backgroundColorAnimation.value
-                : currentState.backgroundColor ??
-                    (_currentIndex.isEven ? Colors.black12 : Colors.black);
+        final background = _isAnimating
+            ? _backgroundColorAnimation.value
+            : currentState.backgroundColor ??
+                (_currentIndex.isEven ? Colors.black12 : Colors.black);
 
-        final foreground =
-            _isAnimating
-                ? _foregroundColorAnimation.value
-                : currentState.foregroundColor ??
-                    (_currentIndex.isEven ? Colors.black : Colors.white);
+        final foreground = _isAnimating
+            ? _foregroundColorAnimation.value
+            : currentState.foregroundColor ??
+                (_currentIndex.isEven ? Colors.black : Colors.white);
 
         return InkWell(
           onTap: _rotate,
@@ -303,19 +283,13 @@ class _AnimatedSwitcherToggleButtonState
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              spacing: 4,
+              spacing: 4.0,
               children: [
-                ClipRect(
-                  child: _buildAnimatedContent(foreground ?? Colors.black),
-                ),
+                ClipRect(child: _buildAnimatedContent(foreground ?? Colors.black)),
                 if (widget.trailing != null)
                   DefaultTextStyle(
-                    style:
-                        currentState.textStyle ??
-                        TextStyle(
-                          color: foreground,
-                          fontWeight: FontWeight.w500,
-                        ),
+                    style: currentState.textStyle ??
+                        TextStyle(color: foreground, fontWeight: FontWeight.w500),
                     child: widget.trailing!,
                   ),
               ],
