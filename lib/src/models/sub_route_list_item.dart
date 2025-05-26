@@ -72,7 +72,7 @@ final List<SubRouteListItem> poemListItems = [
   SubRouteListItem(
     heading: "Girl on the train",
     description:
-        "A real story of my three train rides with a kind & beautiful girl. It’s raw, honest, and captures the feeling of those moments just as they were.",
+        "A real story of my three train rides with a kind & beautiful girl. It  captures the feeling of those moments just as they were.",
     routeId: PoemSubRoute.girlOnTheTrain.routeId,
     type: RouteType.subPoem,
   ),

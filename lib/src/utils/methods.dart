@@ -12,6 +12,8 @@ Future<void> linkOpen(String url) async {
   }
 }
 
+
+
 TextSpan themeHighlighter(
   BuildContext context,
   AppThemeMode appThemeMode,

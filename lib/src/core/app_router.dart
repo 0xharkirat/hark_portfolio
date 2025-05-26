@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio/src/views/pages/about_page.dart';
 import 'package:portfolio/src/views/pages/error_page.dart';
 import 'package:portfolio/src/views/pages/home_page.dart';
 import 'package:portfolio/src/views/pages/labs/labs_page.dart';
@@ -16,7 +17,8 @@ enum AppRoutes {
   error('/error', "Harkirat Singh · Error"),
   subLab('/:subLabId', "Harkirat Singh · Labs"),
   poems('/poems', "Harkirat Singh · Poems"),
-  subPoem('/:subPoemId', "Harkirat Singh · Poems");
+  subPoem('/:subPoemId', "Harkirat Singh · Poems"),
+  about('/about', "Harkirat Singh · About");
 
 
   final String path;
@@ -98,9 +100,19 @@ final goRouter = Provider(
               final subPoemId = state.pathParameters[PathParams.subPoemId.name]!;
               return BaseSubPoemPage(subPoemId: subPoemId);
             },
-          )
+          ),
+
+          
         ]
-      )
+      ),
+      GoRoute(
+            path: AppRoutes.about.path,
+            name: AppRoutes.about.name,
+            builder: (context, state) {
+              setPageTitle(AppRoutes.about.title, context);
+              return const AboutPage(); // Placeholder for about page
+            },
+          )
     ],
     errorBuilder: (context, state) {
       setPageTitle(AppRoutes.error.title, context);

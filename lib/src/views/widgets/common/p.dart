@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/utils/methods.dart';
 
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -34,7 +37,15 @@ class P extends StatelessWidget {
 
               fontWeight: FontWeight.w500,
             ),
-            onUrlTap: (url, displayText) => linkOpen(url),
+            onUrlTap: (url, displayText) {
+              log("Tapped URL: $url");
+              if (url.startsWith("/")) {
+                log("Opening named route: $url");
+                context.go(url);
+                return;
+              }
+              linkOpen(url);
+            },
             urlHoverStyle: style.copyWith(
               decoration: TextDecoration.underline,
               decorationColor: color,
