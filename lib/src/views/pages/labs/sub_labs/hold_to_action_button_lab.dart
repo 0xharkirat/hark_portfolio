@@ -49,7 +49,7 @@ class _HoldToActionButtonLabState extends ConsumerState<HoldToActionButtonLab> {
       children: [
         const P(
           text:
-              "Here, this a counter increment that triggers when the hold is completed. Any callback function can be passed to the `onHoldComplete` field of the button.",
+              "Here, this is a counter increment that triggers when the hold is completed. Any callback function can be passed to the `onHoldComplete` field of the button.",
         ),
 
         const SizedBox(height: 32),

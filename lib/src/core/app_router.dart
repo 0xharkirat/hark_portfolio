@@ -6,13 +6,18 @@ import 'package:portfolio/src/views/pages/error_page.dart';
 import 'package:portfolio/src/views/pages/home_page.dart';
 import 'package:portfolio/src/views/pages/labs/labs_page.dart';
 import 'package:portfolio/src/views/pages/labs/sub_labs/base_sub_lab_page.dart';
+import 'package:portfolio/src/views/pages/poems/poems_page.dart';
+import 'package:portfolio/src/views/pages/poems/sub_poems/base_sub_poem_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 enum AppRoutes {
   home('/', "Harkirat Singh"),
   labs('/labs', "Harkirat Singh · Labs"),
   error('/error', "Harkirat Singh · Error"),
-  subLab('/:subLabId', "Harkirat Singh · Labs");
+  subLab('/:subLabId', "Harkirat Singh · Labs"),
+  poems('/poems', "Harkirat Singh · Poems"),
+  subPoem('/:subPoemId', "Harkirat Singh · Poems");
+
 
   final String path;
   final String title;
@@ -33,7 +38,7 @@ void setPageTitle(String title, BuildContext context) {
 
 // create extension
 
-enum PathParams { subLabId }
+enum PathParams { subLabId, subPoemId }
 
 final goRouter = Provider(
   (ref) => GoRouter(
@@ -77,6 +82,25 @@ final goRouter = Provider(
           return const ErrorPage();
         },
       ),
+
+      GoRoute(
+        path: AppRoutes.poems.path,
+        name: AppRoutes.poems.name,
+        builder: (context, state) {
+          setPageTitle(AppRoutes.poems.title, context);
+          return const PoemsPage(); // Placeholder for poems page
+        },
+        routes:[
+          GoRoute(
+            path: AppRoutes.subPoem.path,
+            name: AppRoutes.subPoem.name,
+            builder: (context, state) {
+              final subPoemId = state.pathParameters[PathParams.subPoemId.name]!;
+              return BaseSubPoemPage(subPoemId: subPoemId);
+            },
+          )
+        ]
+      )
     ],
     errorBuilder: (context, state) {
       setPageTitle(AppRoutes.error.title, context);

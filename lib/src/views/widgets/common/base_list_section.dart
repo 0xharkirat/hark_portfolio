@@ -80,10 +80,24 @@ class _BaseListSectionState<T> extends State<BaseListSection<T>> {
                 heading: Heading(text: item.heading, isSelectable: false),
                 p: P(text: item.description, isSelectable: false),
                 onTap: () {
-                  context.goNamed(
-                    AppRoutes.subLab.name,
-                    pathParameters: {PathParams.subLabId.name: item.routeId},
-                  );
+                  switch (item.type) {
+                    case RouteType.subPoem:
+                      context.goNamed(
+                        AppRoutes.subPoem.name,
+                        pathParameters: {
+                          PathParams.subPoemId.name: item.routeId,
+                        },
+                      );
+                      break;
+                    case RouteType.subLab:
+                      context.goNamed(
+                        AppRoutes.subLab.name,
+                        pathParameters: {
+                          PathParams.subLabId.name: item.routeId,
+                        },
+                      );
+                      break;
+                  }
                 },
               );
             } else {
@@ -127,7 +141,7 @@ class _BaseListSectionState<T> extends State<BaseListSection<T>> {
                         widget.headingIcon,
                         key: const ValueKey('box'),
                         color: iconColor,
-                      ).withStagger( widget.animationIndex),
+                      ).withStagger(widget.animationIndex),
             ),
             child: Heading(
               text: widget.title,

@@ -12,7 +12,7 @@ class YoutubeSection extends StatelessWidget {
       title: "YouTube",
       listItems: youtubeListItems,
       headingIcon: LucideIcons.youtube,
-      animationIndex: 3,
+      animationIndex: 4,
     );
   }
 }

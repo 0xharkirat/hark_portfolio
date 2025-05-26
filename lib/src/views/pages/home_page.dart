@@ -8,6 +8,7 @@ import 'package:portfolio/src/views/widgets/home/hero_section.dart';
 import 'package:portfolio/src/views/widgets/common/header.dart';
 import 'package:portfolio/src/views/widgets/home/youtube_section.dart';
 import 'package:portfolio/src/views/widgets/labs/labs_section.dart';
+import 'package:portfolio/src/views/widgets/poems/poems_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,13 +31,13 @@ class HomePage extends StatelessWidget {
 
         SizedBox(height: 48),
 
-        const LabsSection(
-          animate: true,
-        ),
+        const LabsSection(animate: true),
 
         const ProjectsSection(),
 
         const ContributionsSection(),
+
+        const PoemsSection(animate: true),
 
         const YoutubeSection(),
 

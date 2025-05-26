@@ -19,7 +19,7 @@ extension StringExtension on String {
 extension AnimateWithDelay on Widget {
   Widget withStagger(int index) {
     final delay = Duration(milliseconds: 800 * index);
-    const totalCycle = Duration(milliseconds: 7000);
+    const totalCycle = Duration(milliseconds: 6000);
 
     return animate(
           onPlay: (controller) async {
